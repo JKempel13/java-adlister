@@ -7,7 +7,6 @@ import java.io.PrintWriter;
 
 @WebServlet("/count")
 public class CountServlet extends HttpServlet {
-
     private int counter;
 
     public void init() {
@@ -18,13 +17,16 @@ public class CountServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
         res.setContentType("text/html");
-        counter++;
-        String reset = req.getParameter("reset");
         PrintWriter out = res.getWriter();
         String count = "<h3>Total number of page refresh</h3>";
         String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
+        String reset = req.getParameter("reset");
+        if(reset != null) {
+            counter = 0;
+            counter++;
+        }
 
-
+        counter++;
         out.println(docType +
                 "<html>\n" +
                 "<head><title>" + count + "</title></head>\n" +
@@ -35,12 +37,5 @@ public class CountServlet extends HttpServlet {
                 "</body>" +
                 "</html>"
       );
-
-        if(reset.equalsIgnoreCase("reset")) {
-            out.println("Reset");
-            counter = 0;
-        } else{
-            counter++;
-        }
     }
 }
