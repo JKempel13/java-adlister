@@ -7,8 +7,7 @@
 --%>
 
 <%
-    List<String> favFoods = new ArrayList<>();
-    request.setAttribute("favFoods", favfoods);
+
 %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
