@@ -12,7 +12,7 @@
 </head>
 <body>
     <h1>Enter Username and Password</h1>
-    <form action="POST" method="/profile.jsp">
+    <form action="/profile.jsp" method="POST">
         <%
             if(request.getParameter("username")!=null && request.getParameter("username").equalsIgnoreCase("admin") && request.getParameter("password").equalsIgnoreCase("password")) {
                 response.sendRedirect("/profile.jsp");
