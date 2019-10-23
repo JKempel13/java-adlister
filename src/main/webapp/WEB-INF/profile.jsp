@@ -11,12 +11,6 @@
 
     <div class="container">
         <h1>Welcome ${sessionScope['user']}, to your profile!</h1>
-
-        <form action="login" method="post">
-            <input type="hidden" name="logout">
-            <button>LOGOUT</button>
-        </form>
-
     </div>
 
 </body>
